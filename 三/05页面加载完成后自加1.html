@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				text-align: center;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				var timer = document.getElementById('timer');
+				setInterval(function(){
+					timer.innerHTML = +timer.innerHTML + 1;
+				},1000);
+			};
+		</script>
+	</head>
+	<body>
+		<span id="timer" style="font-weight: bold;font-size: 24px;">
+			1
+		</span>
+	</body>
+</html>

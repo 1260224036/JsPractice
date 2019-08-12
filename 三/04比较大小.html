@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				text-align: center;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				var firnum = document.getElementById('firnum');
+				var secnum = document.getElementById('secnum');
+				var btn = document.getElementById('btn');
+				var bigest = document.getElementById('bigest');
+				
+				btn.onclick = function(){
+					if(firnum.value == '' || secnum.value == ''){
+						alert('请输入数字');
+					}else{
+						bigest.innerHTML = +firnum.value > +secnum.value?firnum.value : secnum.value;
+					}
+				};
+			};
+		</script>
+	</head>
+	<body>
+		<input type="text" id="firnum" />
+		<strong>VS</strong>
+		<input type="text" id="secnum" />
+		<input type="button" id="btn" value="最大的数是>>>" />
+		<span id="bigest" style="color: #f00;">?</span>
+	</body>
+</html>

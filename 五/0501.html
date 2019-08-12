@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			
+			body{
+				background: #23384e;
+				text-align: center;
+			}
+			
+			#outer{
+				background: url(../img/0501.png) repeat-x;
+				display: inline-block;
+				line-height: 32px;
+				margin-top: 5px ;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var a = document.getElementsByTagName('input')[0];
+				
+			};
+		</script>
+	</head>
+	<body>
+		<div id="outer">
+			<input list="gameName" placeholder="请选择游戏名称" />
+			<datalist id="gameName">
+				<option value="DNF">
+				<option value="WoW">
+				<option value="World">
+				<option value="Sword">
+			</datalist>
+			<input type="button" value="搜索" style="margin-right: 5px;width: 50px;text-align: center;border-radius: 2px;"/>
+		</div>
+	</body>
+</html>

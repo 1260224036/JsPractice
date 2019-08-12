@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#outer{
+				width: 100px;
+				height: 100px;
+			}
+			
+			.red{
+				background: #f00;
+			}
+			
+			.green{
+				background: #0f0;
+			}
+		</style>
+		
+		
+	
+		<script type="text/javascript">
+			window.onload = function(){
+			var outer = document.getElementById('outer');
+				
+				
+			outer.onclick = function(){
+				setTimeout(r(outer),5000);
+			}
+			
+			};
+			
+			function r(obj){
+				alert(obj);
+			}
+			
+			
+			
+			
+		</script>
+	</head>
+	<body>
+		<div id="outer" class="red"></div>
+	</body>
+</html>

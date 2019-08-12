@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			
+			.clearfix:before,
+			.clearfix:after{
+				content: '';
+				display: table;
+				clear:both	
+			}
+			
+			#outer{
+				background:url(../img/0401.png);
+				border-radius: 5px;
+				width: 910px;
+				height: 35px;
+				margin: 10px auto;
+			}
+			
+			ul{
+				
+				list-style: none;
+				line-height: 35px;
+			}
+			
+			ul li{
+				float: left;
+				margin: 0 5px ;
+				line-height: 35px;
+				border-radius: 5px;
+				padding: 0 10px;
+				opacity: 1;
+			}
+			
+			ul li:before{
+				content: '|   ';
+				color: white;
+				font-size: 18px;
+			}
+			
+			ul li:Hover{
+				opacity: 0.9;
+				background:url(../img/0402.png);
+			}
+			
+			ul li a{
+				text-decoration: none;
+				color: white;
+			}
+			
+			.ulHidden{
+				display: none;
+			}
+		</style>
+		
+		<script type="text/javascript" src="../js/javascript.js"></script>
+	
+		<script type="text/javascript">
+			window.onload = function(){
+				var fir = document.getElementById('fir');
+				var firli = document.getElementById('firli');
+				var a = firli.getElementsByTagName('a')[0];
+				
+				document.onmousemove = function(event){
+					if(event.target == firli ){
+							event.target.opacity = 0; 					
+					}else{
+						removeClass(firli,'liHover');
+					}
+				};
+			};
+		</script>
+	</head>
+	<body>
+		<div id="outer" >
+			<ul class="clearfix">
+				<li id="firli" class="liHover"><a href="javascript:;">站长之家</a></li>
+				<li><a href="javascript:;">行业资讯</a></li>
+				<li><a href="javascript:;">站长在线</a></li>
+				<li><a href="javascript:;">网站运营</a></li>
+				<li><a href="javascript:;">在线设计</a></li>
+				<li><a href="javascript:;">网络编程</a></li>
+				<li><a href="javascript:;">联盟咨询</a></li>
+				<li><a href="javascript:;">服务器</a></li>
+			</ul>
+		</div>
+	</body>
+</html>

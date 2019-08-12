@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+		
+			#img{
+				text-align: center;				
+			}
+			
+			img{
+				width: 64px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="img">
+			<img src="../img/090101.png" />
+			<img src="../img/090102.png"/>
+			<img src="../img/090103.png"/>
+		</div>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				var imgs = document.getElementsByTagName('img');
+				
+				document.onmousemove = function(ev){
+					var r = 0;
+					for(i=0; i <imgs.length;i++){
+						var x = imgs[i].offsetLeft+imgs[i].offsetWidth/2;
+						var y = imgs[i].offsetTop+imgs[i].offsetHeight/2;
+						r = Math.sqrt(Math.pow(ev.clientX-x,2)+Math.pow(ev.clientY-y,2));
+						
+						if(r>=256){
+							r=256;
+						}
+						
+						imgs[i].style.width = 128-r/256*64 + 'px';
+					}
+				};								
+			};
+		</script>
+	</body>
+</html>

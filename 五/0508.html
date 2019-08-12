@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			
+			#box{
+				height: 100px;
+				width: 100px;
+				background: #f00;
+				margin: auto;
+				margin-top: 300px;
+				line-height: 100px;
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			点击闪烁
+		</div>
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript">
+			$(function(){				
+				var $box = $('#box')[0]
+				$box.onclick = function(){
+					var i = 0;
+					$box.Interval = setInterval(function(){	
+						if(i>=6){
+							clearInterval($box.Interval);
+							$box.style.display = 'block';
+						}
+						if(i%2 == 0){
+							$box.style.display = 'block';
+						}else{
+							$box.style.display= 'none';
+						}						
+						i++;
+					console.log(i);
+					},300);
+					
+					
+				};
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				text-align: center;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				var inps = document.getElementsByTagName('input');
+				var flag = false;
+				
+				inps[0].onclick = function(){
+					if(flag){
+						alert('事件绑定成功');
+					}
+				}
+				
+				inps[1].onclick = function(){
+					inps[0].value = '现在可以点击了';
+					flag = true;
+				};
+				
+				inps[2].onclick = function(){
+					inps[0].value = '无用的按钮';
+					flag = false;
+				};
+			};
+		</script>
+	</head>
+	<body>
+	</body>
+	<input type="button" value="无用的按钮" />
+	<input type="button" value="绑定按钮" />
+	<input type="button" value="解除绑定" />
+</html>

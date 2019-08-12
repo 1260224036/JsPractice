@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			
+			.clearfix:after{
+				content: '';
+				display: table;
+				clear: both;
+			}
+			#wrap{
+				border: 1px solid;
+				width: 240px;
+				height: 240px;
+				/*box-sizing: border-box;*/
+				position: absolute;
+				left: 0;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				margin: auto;
+				transition: 3s;
+				-webkit-box-reflect: above;
+			}
+			
+			#wrap > div{
+				float: left;
+				width: 100px;
+				height: 100px ;
+				background: pink;
+				margin: 10px;
+				
+			}
+			
+			#wrap > div:nth-child(1),#wrap > div:nth-child(4){
+				border-radius: 0 60px;
+			}
+			
+			#wrap > div:nth-child(2),#wrap > div:nth-child(3){
+				border-radius: 60px 0px;
+			}
+			
+			#wrap:hover{
+				transform: rotate(120deg);
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap" class="clearfix">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+	</body>
+</html>

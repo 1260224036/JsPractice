@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+				
+			}
+			
+			
+			
+			/*
+			  
+			 #box{
+				width: 200px;
+				height: 200px;
+				background-color: gray;
+				position: absolute;
+				left: 0;
+				top: 0;
+				right:0 ;
+				bottom: 0;
+				margin: auto;
+			}
+			
+			  绝对定位：	
+			  	position: absolute;
+				left: 0;
+				top: 0;
+				right:0 ;
+				bottom: 0;
+				margin: auto;
+				
+				规则：
+					水平方向：left + width + padding + right + margin = 父元素的padding盒子
+					垂直方向：top + width + padding + bottom + margin = 父元素的padding盒子
+					
+			 */
+			
+			 #box{
+				width: 200px;
+				height: 200px;
+				background-color: gray;
+				position: absolute;
+				left: 50%;
+				top: 50%;			
+				transform: translate3d(50%,50%,0);
+				/*
+				  translat3d根据自身的高宽进行定位·
+				 * */
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			
+		</div>
+	</body>
+</html>

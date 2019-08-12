@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			
+			.clearfix:before,
+			.clearfix:after{
+				content: '';
+				display: table;
+				clear: both;
+			}
+			
+			#outer{
+				width: 300px;
+
+				background: #4C4C4C;
+				margin: 10px auto;
+				color: #FFFFFF;
+				text-align: right;
+			}
+			
+			p{
+				font-size: 12px;
+				padding: 5px;
+				padding-right: 10px;				
+			}
+			
+			#numBox{			
+				height: 83px;
+				font-size: 40px;
+				background: url(../img/caculator.png) repeat-x;
+			}
+			
+			#smlNumBox{
+				height: 23px ;
+				border-bottom: 1px solid #000;
+				color: #000;
+				font-weight: bold;
+				font-size: 16px;
+				line-height: 23px;
+				padding-right: 5px;
+			}
+			
+			span{
+				color: #000;
+				padding-right: 5px;
+			}
+			
+			input{
+				width: 60px;
+				height: 35px;
+				float: left;
+				margin: 7.3px;
+				border-radius: 5px;
+				font-weight: bold;
+				font-size: 20px;
+				color: #fff;
+			}
+			
+			.widthInTwo{
+				width: 134.5px;
+			}
+			
+			.heightInTwo{
+				height: 85px;
+				position: relative;
+				top:-49px; 
+				
+			}
+			
+			.gn{
+				background-color: #83736a;
+			}
+			
+			.num{
+				background-color: #3b3b3b;
+			}
+			
+			.equ{
+				background-color: #f88c31;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				var smlNumBox  = document.getElementById('smlNumBox');
+				var num = document.getElementById('num');
+				var del = document.getElementById('del');
+				var caculates = document.getElementsByName('caculate');
+				var nums = document.getElementsByName('num');
+				var dot = document.getElementById('dot');
+				var equ = document.getElementById('equ');
+				
+				document.onclick = function(event){
+					if(event.target == del){
+						smlNumBox.innerHTML = '';
+						num.innerHTML = '0';
+					}
+					
+					for(var i=0 ; i<nums.length ; i++){
+						if(event.target == nums[i]){
+							var flag = 0;
+							for(var j=0 ; j<caculates.length ; j++){
+								if(num.innerHTML == caculates[j].value){
+									flag = 1;									
+									break;
+								}
+							}
+							
+							if(flag){
+								smlNumBox.innerHTML += num.innerHTML;
+								num.innerHTML = event.target.value;
+							}else{
+								num.innerHTML = +num.innerHTML*10 + +event.target.value;	
+							}
+						}					
+					}
+				
+					
+					for(var i=0 ; i<caculates.length ; i++){
+						if(event.target == caculates[i]){
+							var flag = 0;
+							for(var j=0 ; j<caculates.length ; j++){
+								if(num.innerHTML == caculates[j].value){
+									flag = 1;
+									break;
+								}
+							}
+							
+							if(flag){
+								num.innerHTML = event.target.value;	
+							}else{
+								smlNumBox.innerHTML = num.innerHTML;
+								num.innerHTML = event.target.value;	
+							}
+						}
+					}
+					
+				};
+				
+			};
+		</script>
+	</head>
+	<body>
+		<div id="outer" class="clearfix">
+			<p>By - Ferris QQ:21314130</p>
+			<div id="numBox">
+				<div id="smlNumBox" ></div>
+				<span id="num">0</span>
+			</div>
+			<div id="btnBox" style="position: relative;">
+			<input type="button" id="del" class="gn"  value="C"/>
+			<input type="button" name="caculate" class="gn" value="%"/>
+			<input type="button" name="caculate" class="gn" value="÷"/>
+			<input type="button" name="caculate" class="gn" value="×"/>
+			
+			<input type="button" name="num" class="num" value="7"/>
+			<input type="button" name="num" class="num" value="8"/>
+			<input type="button" name="num" class="num" value="9"/>
+			<input type="button" name="caculate" class="gn" value="-"/>
+			
+			<input type="button" name="num" class="num" value="4"/>
+			<input type="button" name="num" class="num" value="5"/>
+			<input type="button" name="num" class="num" value="6"/>
+			<input type="button" name="caculate" class="gn" value="+"/>
+			
+			<input type="button" name="num" class="num" value="1"/>
+			<input type="button" name="num" class="num" value="2"/>
+			<input type="button" name="num" class="num" value="3"/>
+			
+			<input type="button" name="num" class="widthInTwo num" value="0"/>
+			<input type="button" id="dot"  class="num" value="."/>
+			<input type="button" id="equ" class="heightInTwo equ" value="="/>
+			
+			
+			</div>
+			
+		</div>
+	</body>
+</html>

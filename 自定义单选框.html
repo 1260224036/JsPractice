@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			
+			label{
+				float: left;
+				position: relative;
+				width: 100px;
+				height: 100px;
+				border-radius: 50%;
+				border: 1px solid;
+				overflow: hidden;
+			}
+			
+			label>span{
+				position: absolute;
+				left: 0;
+				top: 0;
+				right: 0;
+				bottom: 0;
+			}
+			
+			input:checked + span{
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<label>
+			<input type="radio" name="choice" id="choice" value="" />
+			<span></span>
+		</label>
+		<label >
+			<input type="radio" name="choice" id="choice" value="" />
+			<span></span>
+		</label>
+		<label >
+			<input type="radio" name="choice" id="choice" value="" />
+			<span></span>
+		</label>
+	</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			
+			#outer{
+				width: 50px;
+				margin: 10px auto;
+			}
+			
+			#py{
+				margin: 5px 0;
+				border: 1px solid;
+			}
+			
+			.boxHidden{
+				visibility: hidden;
+			}
+			
+			ul{
+				list-style: none;
+			}
+			
+			li{
+				height: 20px;
+				line-height: 20px;
+				font-size: 12px;
+			}
+			
+			a{
+				text-decoration: none;
+			}
+		</style>
+		
+		<script type="text/javascript" src="js/javascript.js"></script>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				var btn = document.getElementById('btn');
+				var boxpy = document.getElementById('py');
+				var aclose = document.getElementById('close');
+				
+				btn.onclick = function(){
+					if(noHasClass(boxpy,'boxHidden')){
+						addClass(boxpy,'boxHidden');
+					}else{
+						removeClass(boxpy,'boxHidden');
+					}					
+				};
+				
+				aclose.onclick = function(){
+					addClass(boxpy,'boxHidden');
+				};
+			};
+		</script>
+	</head>
+	<body>
+		<div id="outer">
+			<input type="button" id="btn" value="输入法" />
+			<div id="py" class="boxHidden">
+				<ul>
+					<li><a href="javascript:;">手写</a></li>
+					<li><a href="javascript:;">拼音</a></li>
+					<hr />
+					<li><a href="javascript:;" id='close'>关闭</a></li>
+				</ul>
+			</div>
+		</div>		
+	</body>
+</html>

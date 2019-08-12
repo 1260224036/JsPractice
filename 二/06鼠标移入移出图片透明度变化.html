@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			
+			#outer{
+				border: 1px solid;
+				width: 552px;
+				margin: 10px auto;
+			}
+			
+			#outer div{
+				border: 1px solid;
+				display: inline-block;
+				margin: 4px 2px;
+			}
+			
+			.addOpacity{
+				opacity: 0.5;
+			}
+		</style>
+		
+		<script type="text/javascript" src="../js/javascript.js"></script>
+		<script type="text/javascript">
+			window.onload = function(){
+				var outer = document.getElementById('outer');
+				var imgs = outer.getElementsByTagName('img');
+				//alert(imgs.length);
+				document.onmousemove = function(event){
+					for(var i=0 ; i<imgs.length ; i++){
+						if(event.target == imgs[i]){
+							removeClass(imgs[i],'addOpacity');
+						}else{
+							addClass(imgs[i],'addOpacity');
+						}			
+					}
+				};
+			};
+		</script>
+	</head>
+	<body>
+		<div id="outer">
+			<div ><img src="../img/1.jpg" class="addOpacity"/></div>
+			<div ><img src="../img/1.jpg" class="addOpacity"/></div>
+			<div ><img src="../img/1.jpg" class="addOpacity"/></div>
+			<div ><img src="../img/1.jpg" class="addOpacity"/></div>
+			<br />
+			<div ><img src="../img/1.jpg" class="addOpacity"/></div>
+			<div ><img src="../img/1.jpg" class="addOpacity"/></div>
+			<div ><img src="../img/1.jpg" class="addOpacity"/></div>
+			<div ><img src="../img/1.jpg" class="addOpacity"/></div>			
+		</div>
+	</body>
+</html>

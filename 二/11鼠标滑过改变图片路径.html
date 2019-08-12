@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				background: #000;
+			}
+			
+			.clearfix:before,
+			.clearfix:after{
+					content: '';
+					display: table;
+					clear: both;
+			}
+			
+			#outer{
+				width: 202px;
+				border: 4px solid #fff ;
+				border-radius: 5px;
+				background-color: #fff;
+				margin: auto;
+			}
+			
+			img{
+				float: left;
+
+			}
+			
+			#showBox{
+				display: inline;
+			}
+			
+			
+			
+			.photoBigger{
+				width: 150px;
+			}
+		</style>
+		
+		<script type="text/javascript" src="../js/javascript.js"></script>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				var imgs = document.getElementsByTagName('img');
+				var showBox = document.getElementById('showBox');
+				//var bigPhoto = showBox.getElementsByTagName('img')[0];
+				//alert(imgs.length)
+				document.onmousemove = function(event){
+					for(var i=1 ; i<imgs.length ; i++){
+						if(event.target == imgs[i]){
+							imgs[i].style.cursor = 'pointer';
+							imgs[0].src = '../img/small_' + i +'.jpg';	
+						}
+					}
+				};
+				
+			};
+		</script>
+	</head>
+	<body>
+	<div id="outer" class="clearfix">
+		<div id="showBox">
+			<img src="../img/small_1.jpg" alt="" class="photoBigger"/>
+		</div>
+		<img src="../img/small_1.jpg" alt="" />
+		<img src="../img/small_2.jpg" alt="" />
+		<img src="../img/small_3.jpg" alt="" />
+		<img src="../img/small_4.jpg" alt="" />
+		<img src="../img/small_5.jpg" alt="" />
+		<img src="../img/small_6.jpg" alt="" />
+		<img src="../img/small_7.jpg" alt="" />
+		<img src="../img/small_8.jpg" alt="" />
+		<img src="../img/small_9.jpg" alt="" />
+		<img src="../img/small_10.jpg" alt="" />
+		<img src="../img/small_11.jpg" alt="" />
+	</div>
+	</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			
+			.clearfix:before,
+			.clearfix:after{
+				content: '';
+				display: table;
+				clear: both;
+			}
+			
+			body{
+				background: #000;
+			}
+			
+			#outer{
+				width: 300px;
+				height: 150px;
+				border: 5px solid #fff;
+				position: relative;
+			}
+			
+			#drag{
+				border-bottom: 5px solid #fff;
+				height: 25px;
+				line-height: 25px;
+				background-color: #222;
+			}
+			
+			#drag p{
+				color: #fff;
+				float: right;
+				font-size: 14px;
+			}
+			
+			#inf{
+				background-color: #333;
+			}
+			
+			#inf p{
+				color: #FFFFFF;
+				font-size: 14px;
+				margin-left: 10px;
+				line-height: 40px;
+			}
+				
+		</style>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				var outer = document.getElementById('outer');
+				var drag = document.getElementById('drag');
+				var pd = drag.getElementsByTagName('p')[0];
+				var ps = document.getElementById('inf').getElementsByTagName('p');
+				
+				drag.onmousemove = function(){
+					drag.style.cursor = 'move';
+				}
+				
+				pd.onmousemove = function(){
+					pd.style.cursor = 'pointer';
+				};
+				
+				drag.onmousedown = function(event){
+					var ot = event.clientY - outer.offsetTop;
+					var ol = event.clientX - outer.offsetLeft;
+					
+					document.onmousemove = function(event){		
+						var top = event.clientY - ot;
+						var left = event.clientX - ol;
+						
+						ps[1].innerHTML = 'offsetTop:' + event.clientY;
+						ps[2].innerHTML = 'offsetLeft:' + event.clientX;
+						outer.style.top = top  + 'px';
+						outer.style.left = left  + 'px';
+				
+					};
+					
+					document.onmouseup = function(){
+						document.onmousemove = null;
+					};
+										
+				}
+				
+				
+								
+			};
+		</script>
+	</head>
+	<body>
+		<div id="outer">
+			<div id="drag" class="clearfix">		
+				<p>点击回放拖动轨迹</p>
+			</div>
+			<div id="inf">
+				<p>Drag:false</p>
+				<p>offsetTop:0</p>
+				<p>offsetLeft:0</p>			
+			</div>
+		</div>
+	</body>
+</html>

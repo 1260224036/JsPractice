@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			
+			#outer{
+				border: 10px solid;
+				width: 230px;
+			}
+			
+			#monthBox{
+				border: 1px solid;
+			}
+			
+			#monthBox li{
+				border: 1px solid;
+				display: inline-block;
+				padding: 5px 10px;
+				width: 30px;
+				text-align: center;
+				background-color: #000;
+				color: #fff;
+				margin: 2px 1px;
+			}
+			
+			#monthBox .liChecked{
+				background-color: #fff;
+				color: pink ;
+			}
+			
+			#monthBox li:first-line{
+				font-weight: bold;
+				font-size:1.5em;
+			}
+			
+			#monthInfBox{
+				padding: 5px;
+				border: 1px solid;			
+			}
+			
+			#monthInfBox li:first-line{
+				font-weight: bold;
+			}
+			
+			.liHidden{
+				display: none;
+			}
+		</style>
+		
+		<script type="text/javascript" src="../js/javascript.js"></script>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				var monthBoxLis = document.getElementById('monthBox').getElementsByTagName('li');
+				var monthInfBoxLis = document.getElementById('monthInfBox').getElementsByTagName('li');
+				//alert(monthBoxLis[0].index);
+				
+					for(var i=0 ; i<monthBoxLis.length ; i++){
+						monthBoxLis[i].onmousemove = function(event){
+							for(var j=0 ; j<monthBoxLis.length ; j++){
+								removeClass(monthBoxLis[j],'liChecked');
+							}
+							
+							replaceClass(this,'liChecked');
+							
+							for(var j=0 ; j<monthBoxLis.length ; j++){
+								if(monthBoxLis[j].className == 'liChecked'){
+									removeClass(monthInfBoxLis[j],'liHidden');
+									monthBoxLis[j].style.cursor = 'pointer';
+								}else{
+									addClass(monthInfBoxLis[j],'liHidden');
+								}
+							}
+					}
+					
+					
+				};
+			};
+		</script>
+	</head>
+	<body>
+		<div id="outer">
+			<div id="monthBox">
+				<ul>
+					<li>1<br />Jan</li>
+					<li>2<br />Feb</li>
+					<li>3<br />Mar</li>
+					<li>4<br />Apr</li>
+					<li>5<br />May</li>
+					<li class="liChecked">6<br />Jun</li>
+					<li>7<br />Jul</li>
+					<li>8<br />Aug</li>
+					<li>9<br />Sep</li>
+					<li>10<br />Oct</li>
+					<li>11<br />Nov</li>
+					<li>12<br />Dec</li>
+				</ul>
+			</div>
+			<div id="monthInfBox">
+				<ul>
+					<li class="liHidden">1月节日 <br />元旦：1月1日至3日放假三天。</li>
+					<li class="liHidden">2月节日 <br />春节：2月2日至8日放假7天。</li>
+					<li class="liHidden">3月节日 <br />妇女节：3月8日妇女节，与我无关。</li>
+					<li class="liHidden">4月节日 <br />清明节：4月3日至5日放假3天。</li>
+					<li class="liHidden">5月节日 <br />劳动节：4月30日至5月2日放假3天。</li>
+					<li >6月节日 <br />端午节：6月4日至6日放假3天。</li>
+					<li class="liHidden">7月节日 <br />小暑：7月7日小暑。不放假。</li>
+					<li class="liHidden">8月节日 <br />七夕节：8月6日七夕节。不放假。</li>
+					<li class="liHidden">9月节日 <br />中秋节：9月10日至12日放假3天。</li>
+					<li class="liHidden">10月节日 <br />国庆节：10月1日至7日放假7天。</li>
+					<li class="liHidden">11月节日 <br />立冬：11月8日立冬。不放假。</li>
+					<li class="liHidden">12月节日 <br />艾滋病日:12月1日<br />废除奴隶制国际日:12月2日。</li>
+				</ul>
+			</div>
+		</div>		
+	</body>
+</html>

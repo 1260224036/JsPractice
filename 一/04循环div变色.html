@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				text-align: center;
+			}
+			div{
+				width: 100px;
+				height: 100px;
+				display: inline-block;
+				background-color: black;
+				margin: 5px 5px;
+			}
+			.red{
+				background-color: #f00;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				var btn = document.getElementById('btn');
+				var divs = document.getElementsByTagName('div');
+				
+				btn.onclick = function(){
+					for(var i=0 ; i<divs.length ; i++){
+						//divs[i].style.backgroundColor = 'red';
+					}
+				};
+			};
+			
+			function addClass(obj,cn){
+				
+			}
+			
+			function noHasClass(){
+				
+			}
+		</script>
+	</head>
+	<body>
+		<input type="button"  id="btn" value="点击将DIV变成红色" /><br />
+		<div></div>
+		<div></div>
+		<div></div>
+	</body>
+</html>

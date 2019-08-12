@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#outer{
+				border: 1px solid;
+				width: 225px;
+				margin: 10px auto;
+			}
+			
+			#changeBox{
+				width: 180px;
+				height: 180px;
+				color: #FFFFFF;
+				font-size: 12px;
+				background: #000;
+				padding: 10px;
+				margin: 10px auto;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				var submit = document.getElementById('submit');
+				var styleName = document.getElementById('styleName');
+				var styleValue = document.getElementById('styleValue');
+				var changeBox = document.getElementById('changeBox');
+				
+				submit.onclick = function(){
+					changeBox.style[styleName.value] = '' + styleValue.value; 
+				};
+			};
+		</script>
+	</head>
+	<body>
+		<div id="outer">
+			<label >属性名：</label>
+			<input type="text" id="styleName" value="background" />
+			<br />
+			<label >属性值：</label>
+			<input type="text" id="styleValue" value="blue" />
+			<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="button" id="submit" value="确定"/>&nbsp;
+			<input type="button" id="reset" value="重置"/>
+		</div>
+		
+		<div id="changeBox">
+			在上方输入框输入"属性名"及"属性值"，点击确定按钮查看效果。			
+		</div>
+	</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			
+			.clearfix:before,
+			.clearfix:after{
+				content: '';
+				display: table;
+				clear: both;
+			}		
+			
+			.redABodyColor{
+				background-color: #fdd;
+			}
+				
+			.greenABodyColor{
+				background-color: #a3c5a8;
+			}
+				
+			.blackABodyColor{
+				background-color: #ccc;
+			}	
+			
+			#box{
+				width: 500px;
+				margin: 10px auto;
+				position: relative;
+			}
+			
+			#changeBox a{
+				display: inline-block;
+				width: 5px;
+				height: 5px;
+				border: 5px solid;
+				margin: 5px 5px;
+			}
+			
+			#changeBox .red{
+				background-color: #f00;
+				border-color: #f00;
+			}
+			
+			#changeBox .green{
+				background-color: #008000;
+				border-color: #008000;
+			}
+			
+			#changeBox .black{
+				background-color: #000;
+				border-color: #000;
+			}
+			
+			#changeBox .aAfterOnclick{
+				background-color: #fff;
+			}
+			
+			.ulstyle{
+				list-style: none;
+				background-color: #008000;
+			}
+			
+			.red{
+				background-color: #f00;
+			}
+			
+			.green{
+				background-color: #008000;
+			}
+			
+			.black{
+				background-color: #000;
+			}
+						
+			#guideBox li{
+				float: left;
+				width: 80px;
+				text-align: center;
+				border: 1.5px #fff solid;				
+				color: #fff;
+				font-size: 12px;
+				padding: 5px 0;
+			}
+			
+			#guideBox a{
+				text-decoration: none;
+				color: #fff;
+			}
+			
+			#guideBox a:hover{
+				text-decoration: underline;
+			}
+			
+		</style>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				var body = document.body;
+				var changeBox = document.getElementById('changeBox');
+				var changeAs = changeBox.getElementsByTagName('a');
+				//var ul = document.getElementsByTagName('ul')[0];
+				var lis = document.getElementsByTagName('li');
+				
+				changeAs[0].onclick = function(){
+					addClass(changeAs[0],'aAfterOnclick');
+					removeClass(changeAs[1],'aAfterOnclick');
+					removeClass(changeAs[2],'aAfterOnclick');
+					replaceClass(body,'redABodyColor');
+					//replaceClass(ul,'red')
+					for(var i=0 ; i<lis.length ; i++){						
+						replaceClass(lis[i],'red');					
+					}
+				};
+				
+				changeAs[1].onclick = function(){
+					addClass(changeAs[1],'aAfterOnclick');
+					removeClass(changeAs[0],'aAfterOnclick');
+					removeClass(changeAs[2],'aAfterOnclick');
+					replaceClass(body,'greenABodyColor');
+					for(var i=0 ; i<lis.length ; i++){						
+						replaceClass(lis[i],'green');					
+					}
+				};
+				
+				changeAs[2].onclick = function(){
+					addClass(changeAs[2],'aAfterOnclick');
+					removeClass(changeAs[0],'aAfterOnclick');
+					removeClass(changeAs[1],'aAfterOnclick');
+					replaceClass(body,'blackABodyColor');
+					for(var i=0 ; i<lis.length ; i++){						
+						replaceClass(lis[i],'black');					
+					}
+				};
+
+			};
+			
+			function replaceClass(obj,cn){
+				obj.className = cn;
+			}
+			
+			function addClass(obj,cn){
+				if(noHasClass(obj,cn)){
+					obj.className += ' ' + cn;					
+				}
+			}
+			
+			function noHasClass(obj,cn){
+				var reg = new RegExp('\\b' + cn + '\\b');
+				return !reg.test(obj.className);
+			}
+			
+			function removeClass(obj,cn){
+				var reg = new RegExp('\\b' + cn + '\\b');
+				obj.className = obj.className.replace(reg,'');
+								
+			}
+		</script>
+	</head> 
+	<body class="greenABodyColor">
+		<div id="box">
+			<div id="changeBox" class="clearfix">
+				<a  href="javascript:;" class="red "></a>
+				<a  href="javascript:;" class="green aAfterOnclick "></a>
+				<a  href="javascript:;" class="black "></a>			
+			</div>
+			
+			<div id="guideBox">
+				<ul  class="clearfix ulstyle">
+					<li><a href="#">新闻</a></li>
+					<li><a href="#">娱乐</a></li>
+					<li><a href="#">电影</a></li>
+					<li><a href="#">体育</a></li>
+					<li><a href="#">音乐</a></li>
+					<li><a href="#">旅游</a></li>
+				</ul>
+			</div>
+		</div>		
+	</body>
+</html>

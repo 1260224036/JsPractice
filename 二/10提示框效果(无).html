@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			
+			#outer{
+				border: 1px solid;
+				width: 392px;
+				margin: 10px auto;
+			}
+			
+			#outer h2{
+				text-align: center;
+			}
+			
+			#outer div{
+				border: 1px solid;
+				display: inline-block;
+				margin: 4px ;
+			}
+			
+			#outer p{
+				padding: 10px 10px 30px;
+				background-color: #ccc;
+			}
+			
+			#outer p:first-line{
+				font-size: bold;
+			}
+			
+			.addHidden{
+				display: none;
+			}
+			
+			img{
+				position: absolute;
+				z-index: 2;
+			}
+		</style>
+		
+		<script type="text/javascript" src="../js/javascript.js"></script>
+		<script type="text/javascript">
+			window.onload = function(){
+				var outer = document.getElementById('outer');
+				var ps = document.getElementsByTagName('p');
+				var imgs = outer.getElementsByTagName('img');
+				//alert(imgs.length);
+				document.onmousemove = function(event){
+					for(var i=0 ; i<ps.length ; i++){
+						if(event.target == ps[i]){
+							removeClass(imgs[i],'addHidden');
+							addClass(ps[i],'addHidden');
+						}else{
+							removeClass(ps[i],'addHidden');
+							addClass(imgs[i],'addHidden');
+						}			
+					}
+				};
+			};
+		</script>
+	</head>
+	<body>
+		<div id="outer">
+			<h2>名车车标展示-鼠标移过显示车标</h2>
+				<div ><p>BMW <br />宝马汽车</p><img src="../img/1.jpg" class="addHidden"/></div>
+				<div ><p>BMW <br />宝马汽车</p><img src="../img/1.jpg" class="addHidden"/></div>
+				<div ><p>BMW <br />宝马汽车</p><img src="../img/1.jpg" class="addHidden"/></div>
+				<div ><p>BMW <br />宝马汽车</p><img src="../img/1.jpg" class="addHidden"/></div>
+				<br />
+				<div ><p>BMW <br />宝马汽车</p><img src="../img/1.jpg" class="addHidden"/></div>
+				<div ><p>BMW <br />宝马汽车</p><img src="../img/1.jpg" class="addHidden"/></div>
+				<div ><p>BMW <br />宝马汽车</p><img src="../img/1.jpg" class="addHidden"/></div>
+				<div ><p>BMW <br />宝马汽车</p><img src="../img/1.jpg" class="addHidden"/></div>	
+		</div>
+	</body>
+</html>

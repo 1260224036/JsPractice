@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				text-align: center;
+			}
+			
+			input{
+				display: inline-block;
+			}
+			
+			#shi{
+				margin: 5px auto;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				var btn = document.getElementById('cc');
+				var sheng = document.getElementById('sheng');
+				var shi = document.getElementById('shi');
+				
+				btn.onclick = function(){
+					alert(sheng.value);
+					alert(shi.value);
+				};
+			};
+		</script>
+	</head>
+	<body>
+		<input type="text" id="sheng" value="北京市"/><br />
+		<input type="text" id="shi" value="朝阳区"/><br />
+		<input type="button" id="cc" value="传参" />
+	</body>
+</html>

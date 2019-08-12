@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#outer{
+				border: 1px solid;
+				border-radius: 5px;
+				width: 160px;
+				padding: 10px;
+				margin: auto;
+			}
+			
+			#AoNText{
+				padding: 5px;
+				font-weight: bold;
+				font-size: 14px;
+			}
+			
+			#checkOther{
+				color: cornflowerblue;
+				font-size: 14px;
+				padding-right: 40px;
+			}
+			
+		</style>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				var AoN = document.getElementById('AoN');
+				var AoNText = document.getElementById('AoNText');
+				var checkOther = document.getElementById('checkOther');
+				var options = document.getElementsByName('option');
+				//alert(AoNText.innerHTML)
+				AoN.onclick = function(){
+					if(this.checked == true){
+						AoNText.innerHTML = '全不选';
+						for(var i=0 ; i<options.length ; i++){
+							options[i].checked = true;
+						}
+					}else{
+						AoNText.innerHTML = '全选';
+						for(var i=0 ; i<options.length ; i++){
+							options[i].checked = false;
+						}
+					}
+				};
+				
+				checkOther.style.cursor = 'pointer';
+				checkOther.onclick = function(event){
+					var csum = 0;
+					for(var i=0 ; i<options.length ; i++){
+						options[i].checked = !options[i].checked;
+						if(options[i].checked == true){
+							csum++;
+						}
+					}
+					
+					if(csum == options.length){
+						AoN.checked = true;
+						AoNText.innerHTML = '全不选';
+					}else{
+						AoN.checked = false;
+						AoNText.innerHTML = '全选';
+					}
+				};
+				
+				for(var i=0 ; i<options.length ; i++){
+					options[i].onclick = function(){
+						if(this.checked == true){
+							var csum = 0;
+							for(var j=0 ; j<options.length ; j++){
+								if(options[j].checked == true){
+									csum++;
+								}else{
+									break;
+								}
+							}
+							
+							if(csum == 10){
+								AoN.checked = true;
+								AoNText.innerHTML = '全不选';								
+							}
+						}else{
+							AoN.checked = false;
+							AoNText.innerHTML = '全选';
+						}
+					};
+				}
+				
+			};
+		</script>
+	</head>
+	<body>
+		<div id="outer">
+			<input type="checkbox" id="AoN" />
+			<span id="AoNText" >全选</span>
+			<span id="checkOther" >反选</span>
+			<hr />
+			<input type="checkbox" name="option"/>选项（一）<br />
+			<input type="checkbox" name="option"/>选项（二）<br />
+			<input type="checkbox" name="option"/>选项（三）<br />
+			<input type="checkbox" name="option"/>选项（四）<br />
+			<input type="checkbox" name="option"/>选项（五）<br />
+			
+			<input type="checkbox" name="option"/>选项（六）<br />
+			<input type="checkbox" name="option"/>选项（七）<br />
+			<input type="checkbox" name="option"/>选项（八）<br />
+			<input type="checkbox" name="option"/>选项（九）<br />
+			<input type="checkbox" name="option"/>选项（十）
+		</div>
+	</body>
+</html>

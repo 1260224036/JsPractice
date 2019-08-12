@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			
+			.init{
+				height: 100px;
+				width: 100px;
+				background-color: #FF0000;
+				position: absolute;
+				left: 300px;
+				top: 50px;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				var div = document.getElementsByTagName('div')[0];
+		
+				document.onkeydown = function(event){					
+					if(event.keyCode == 38){
+						div.style.top = div.offsetTop - 10 + 'px';
+					}else if(event.keyCode == 39){
+						div.style.left = div.offsetLeft + 10 + 'px';
+					}else if(event.keyCode == 40){
+						div.style.top = div.offsetTop + 10 + 'px';
+					}else if(event.keyCode == 37){
+						div.style.left = div.offsetLeft - 10 + 'px';
+					}else if(event.ctrlKey == true && event.keyCode == 97){
+						div.style.backgroundColor = 'green';
+					}else if(event.ctrlKey == true && event.keyCode == 98){
+						div.style.backgroundColor = 'yellow';
+					}else if(event.ctrlKey == true && event.keyCode == 99){
+						div.style.backgroundColor = 'blue';
+					}else if(event.ctrlKey == true && event.keyCode == 38){
+						div.style.height = div.offsetHeight + 10 + 'px';
+						div.style.width = div.offsetWidth + 10 + 'px';
+					}else if(event.ctrlKey == true && event.keyCode == 40){
+						div.style.height = div.offsetHeight - 10 + 'px';
+						div.style.width = div.offsetWidth - 10 + 'px';
+					}
+				};
+				
+			};
+		</script>
+	</head>
+	<body>
+		<pre>
+红色方块为键盘操作区域，您可以进行如下操作：
+
+上：↑ 下：↓ 左：← 右：→
+
+Ctrl + 1 : 背景变为绿色
+Ctrl + 2 : 背景变为黄色
+Ctrl + 3 : 背景变为蓝色
+Ctrl + ↑ : 放大
+Ctrl + ↓ : 缩小
+		</pre>
+		<div class="init"></div>
+	</body>
+</html>

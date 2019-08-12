@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#outer{
+				width: 450px;
+				margin: 5px auto;
+			}
+			
+			span{
+				color: #4c4c4c;
+				font-size: 14px;
+			}
+			
+			#sumBox{
+				font-size: 36px;
+				color: #f00;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				var btn = document.getElementById('couter');
+				var num = document.getElementById('num');
+				var sumBox = document.getElementById('sumBox');
+				
+				btn.onclick = function(){
+					var numArr = num.value.split(',')
+					var sum = 0;
+					for(var i=0 ; i<numArr.length ; i++){
+						sum += +numArr[i];
+					}
+					sumBox.innerHTML = sum;
+				};
+			};
+		</script>
+	</head>
+	<body>
+		<div id="outer">
+			<input type="text" id="num" value="1,2,3,4,5,6,7,8,9,10,11,12,13,14,15" />&nbsp;&nbsp;&nbsp;<span>输入数字求和，数字之间用半角","号分隔</span>
+			<br /><br />
+			<input type="button" id="couter" value="求和" />
+			<div id="sumBox"></div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#clock{
+				width: 235px;
+				padding: 10px 30px;
+				background: #000;
+				margin: auto;
+			}
+			
+			input{
+				display: inline-block;
+				width: 30px;
+				text-align: center;
+				margin: 0 10px;
+				font-weight: bold;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				var inps = document.getElementsByTagName('input');
+				
+				setInterval(function(){
+					var date = new Date();
+					inps[0].value = date.getHours();
+					inps[1].value = date.getMinutes();
+					inps[2].value = date.getSeconds();
+				},0);
+			};
+		</script>
+	</head>
+	<body>
+		<div id="clock">
+			<input type="text"  id="hour" />
+			<span style="color: #fff;">点</span>
+			<input type="text"  id="minute" />
+			<span style="color: #fff;">分</span>
+			<input type="text"  id="second" />
+			<span style="color: #fff;">秒</span>
+		</div>
+	</body>
+</html>

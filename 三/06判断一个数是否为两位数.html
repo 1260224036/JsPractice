@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				text-align: center;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				var btn = document.getElementById('btn');
+				var num = document.getElementById('num');
+
+				btn.onclick = function(){
+					if(num.value == ''){
+						alert('请输入数字！');
+					}else{
+						if(num.value.split('').length == 2){
+							alert('√ 是两位数。');
+						}else{
+							alert('这个数是' + num.value.split('').length + '位数。');
+						}				
+					}
+				};
+			};
+		</script>
+	</head>
+	<body>
+		<input type="text" id="num" value="416468461213946"/>
+		<input type="button" id="btn" value="是否为两位数" />
+	</body>
+</html>

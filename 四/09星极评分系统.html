@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			
+			.clearfix:before,
+			.clearfix:after{
+				content: '';
+				display: table;
+				clear: both;
+			}
+			
+			#outer{
+				position: relative;
+			}
+			
+			#outer ul{
+				list-style: none;
+				display: inline-block;
+				margin-top: 10px;
+			}
+			
+			#outer ul li{
+				float: left;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var allA = document.getElementsByTagName('a');
+				var span = document.getElementsByTagName('span')[1];
+				var p = document.getElementsByTagName('p')[0];
+				
+				alert(allA.length)
+			};
+		</script>
+	</head>
+	<body>
+		<div id="outer" class="clearfix">
+			<span >点击星星就能打分</span>
+			<ul class="clearfix">
+				<li ><a href="javascript:;"><img src="../img/040901.png" width="20px"/></a></li>
+				<li ><a href="javascript:;"><img src="../img/040901.png" width="20px"/></a></li>
+				<li ><a href="javascript:;"><img src="../img/040901.png" width="20px"/></a></li>
+				<li ><a href="javascript:;"><img src="../img/040901.png" width="20px"/></a></li>
+				<li ><a href="javascript:;"><img src="../img/040901.png" width="20px"/></a></li>
+			</ul>
+			<span></span>
+			<p></p>
+		</div>
+	</body>
+</html>

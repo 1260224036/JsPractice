@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			body{
+				text-align: center;
+			}
+			
+			.boxInitial{
+				width: 100px;
+				height: 100px;
+				background: black;
+				margin: 20px auto;
+			}
+			
+			.boxBigger{
+				width: 200px;
+				height: 200px;
+			}
+			
+			.boxWider{
+				width: 400px;
+			}
+			
+			.boxChangeRed{
+				background: red;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				var box1 = document.getElementById('box1');
+				
+				var btn01 = document.getElementById('btn01');
+				btn01.onclick = function(){
+					addClass(box1,'boxBigger');
+					//alert(1);
+				};
+				
+				var btn02 = document.getElementById('btn02');
+				btn02.onclick = function(){
+					addClass(box1,'boxWider')
+				};
+				
+				var btn03 = document.getElementById('btn03');
+				btn03.onclick = function(){
+					addClass(box1,'boxChangeRed');
+				};
+				
+				var btn04 = document.getElementById('btn04');
+				btn04.onclick = function(){
+					box1.className = 'boxInitial';
+				};
+			};
+			
+			function replaceClass(obj,cn){
+				obj.className = cn;
+			}
+			
+			function addClass(obj,cn){
+				if(noHasClass(obj,cn)){
+					obj.className += ' ' + cn;					
+				}
+			}
+			
+			function noHasClass(obj,cn){
+				var reg = new RegExp('\\b' + cn + '\\b');
+				return !reg.test(obj.className);
+			}
+			
+		</script>
+	</head>
+	<body>
+		<button id="btn01">变大</button>
+		<button id="btn02">变宽</button>
+		<button id="btn03">变色</button>
+		<button id="btn04">重置</button>
+		<div id="box1" class="boxInitial"></div>
+	</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				text-align: center;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				var firnum = document.getElementById('firnum');
+				var secnum = document.getElementById('secnum');
+				var sum = document.getElementById('sum');
+				var btn = document.getElementById('btn');
+				
+				
+				firnum.onkeyup = function(event){
+					
+					if(65 <= event.keyCode <= 220){
+						alert(event.keyCode);
+						return false;
+					}		
+				}
+				
+				btn.onclick = function(){
+					if(firnum.value == '' || secnum.value == ''){
+						alert('请输入数字！');
+					}else{
+						firnum.onkeydown = function(event){
+							firnum.value = parseInt(firnum.value);
+						}
+						
+						secnum.onkeydown = function(event){
+							if(event.keyCode<96 || event.keyCode>105){
+								return false;
+							}
+						}
+						sum.innerHTML = +firnum.value + +secnum.value + '';
+					}
+				};
+			};
+		</script>
+	</head>
+	<body>
+	</body>
+	<input type="text" id="firnum" value="" />
+	+
+	<input type="text" id="secnum" value="" />
+	=
+	<span id="sum">?</span>
+	<input type="button" id="btn" value="求和" />
+</html>

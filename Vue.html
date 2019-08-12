@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			var uid = 0;
+			
+			function Dep(){
+				this.id = uid++;
+			}
+			
+			window.onload = function(){
+				var ps = document.getElementsByTagName('p');
+				
+				Array.prototype.slice.call(ps).forEach(function(element) {
+					  element.dep = new Dep();
+					  
+					  console.log()
+					});
+				
+				console.log(ps[1].dep.id)
+								
+			
+			}
+		</script>
+	</head>
+	<body>
+		<p id='p1'></p>
+		<p id='p2'></p>
+	</body>
+</html>

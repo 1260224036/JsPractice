@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#outer{
+				border: 1px solid #aaa;
+				width: 200px;
+				margin: 0 auto;
+			}
+			
+			#head{
+				border: 1px solid #aaa;
+				background-color: #ced3e7;
+				padding: 5px;
+				font-size: 15px;
+				color: #56747e;
+			}
+			
+			#head span{
+				float: right;
+			}
+			
+			#menu{
+				background-color: #e9edf2;
+			}
+			
+			#menu a{
+				padding: 5px;
+				display: block;
+				text-decoration: none;
+				font-size: 13px;
+				color: #56747e;
+			}
+			
+			#menu a:hover{
+				background-color: #fff;
+				text-decoration: underline;
+			}
+			
+			.menuHidden{
+				display: none;
+			}
+		</style>
+		
+		<script type="text/javascript" src="../js/javascript.js"></script>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				var btn = document.getElementById('btn');
+				var menu = document.getElementById('menu');
+				
+				btn.style.cursor = 'pointer';
+				btn.onclick = function(){
+					if(btn.innerHTML == '▲'){
+						btn.innerHTML = '▼';
+						removeClass(menu,'menuHidden');
+					}else{
+						btn.innerHTML = '▲';
+						addClass(menu,'menuHidden');
+					}
+				};
+			};
+		</script>
+	</head>
+	<body>
+		<div id="outer">
+			<div id="head">
+				播放列表... <span id="btn">&#9650;</span> 		
+			</div>		
+			<div id="menu" class="menuHidden">
+				<a href="javascript:;">玩家之徒 - 蔡依林</a>
+				<a href="javascript:;">原谅我就是这样的女生 - 戴佩妮</a>
+				<a href="javascript:;">猜不透 - 丁当</a>
+				<a href="javascript:;">自导自演 - 周杰伦</a>
+				<a href="javascript:;">浪漫窝 - 弦子</a>
+				<a href="javascript:;">流年 - 王菲</a>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			
+			.clearfix:after,
+			.clearfix:before{
+				content: '';
+				display: table;
+				clear: both;
+			}
+			
+			.b1{
+				width: 300px;
+				border: 1px solid;
+				overflow: hidden;
+			}
+			
+			.b2{
+				float: left;
+				width: 100px;
+				background: pink;
+				border: 1px solid;
+				padding-bottom: 1000px;
+				margin-bottom: -1000px;
+				height: 450px;
+			}
+			
+			.bm{
+				float: left;
+				width: 40px;
+				background: red;
+				border: 1px solid;
+					
+			}
+			
+			.b3{
+				float: left;
+				width: 150px;
+				background: deeppink;
+				border: 1px solid;
+				padding-bottom: 1000px;
+				margin-bottom: -1000px;
+				height: 500px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="b1 clearfix">
+			<div class="b2">
+				left<br>
+				left<br>
+				left<br>
+				left<br>
+				left<br>
+				left<br>
+				left<br>
+				left<br>
+				left<br>
+			</div>
+			<div class="bm">
+				mid<br>
+				mid<br>
+				mid<br>
+				
+				mid<br>
+				mid<br>
+				
+			</div>
+			<div class="b3">
+				right<br>right<br>right<br>
+				
+				right<br>right<br>right<br>right<br>vright<br>right<br>right<br>right<br>right<br>
+			</div>
+		</div>
+		
+	</body>
+</html>

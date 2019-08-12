@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			
+			div{
+				border:1px dotted;
+				background-color: #f0f0f0;
+				padding: 10px;
+				margin: 10px 10px 10px 0;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				var divs = document.getElementsByTagName('div')
+				var inps = document.getElementsByTagName('input')
+				
+				inps[0].onclick = function(){
+					var reg = /January\(1\)\,/;
+					divs[0].innerHTML = divs[0].innerHTML.replace(reg,'');
+				};
+				
+				inps[1].onclick = function(){
+					var reg = /December\(12\)/;
+					divs[0].innerHTML = divs[0].innerHTML.replace(reg,'');
+				};
+				
+				inps[2].onclick = function(){
+					divs[1].innerHTML = divs[1].innerHTML +','+ divs[1].innerHTML;
+				};
+				
+				inps[3].onclick = function(){
+					divs[1].innerHTML = '0,1,2,3,4,5,6,7,8,9';
+				};
+				
+				var colorArr = divs[2].innerHTML.split(',');
+				//alert(colorArr.length)
+				
+				inps[4].onclick = function(){
+					divs[2].innerHTML = 'red,green,blue,white,yellow,black,brown';
+				};
+				
+				inps[5].onclick = function(){
+					var newColorArr = [];
+					var k = 0;
+					
+					for(var i=0 ; i<3 ; i++){
+						colorArr[i] = '';
+					}
+					
+					for(var j=0 ; j<colorArr.length ; j++){						
+						if(colorArr[j] != ''){
+							newColorArr[k++] =  colorArr[j] ;							
+						}
+					}
+					
+					divs[2].innerHTML = newColorArr.join(',');
+					
+					colorArr = divs[2].innerHTML.split(',');
+				};
+				
+				inps[6].onclick = function(){
+					var newColorArr = [];
+					var k = 0;
+					
+					for(var i=1 ; i<3 ; i++){
+						colorArr[i] = '';
+					}
+					
+					for(var j=0 ; j<colorArr.length ; j++){						
+						if(colorArr[j] != ''){
+							newColorArr[k++] =  colorArr[j] ;							
+						}
+					}
+					
+					divs[2].innerHTML = newColorArr.join(',');
+					
+					colorArr = divs[2].innerHTML.split(',');
+				};
+				
+				inps[7].onclick = function(){
+					var insertColor = ',orange,purple,';
+					var str1 = '',str2 = '';
+					
+					for(var i=0 ; i<1 ; i++){
+						str1 += colorArr[i] + ',';
+					}
+					str1 += colorArr[i];
+					
+					for(var j=2 ; j<colorArr.length-1 ; j++){						
+						str2 +=  colorArr[j] + ',';
+					}
+					str2 += colorArr[j];
+			
+					
+					divs[2].innerHTML = str1 + insertColor + str2;
+					
+					colorArr = divs[2].innerHTML.split(',');
+				};
+				
+			};
+		</script>
+	</head>
+	<body>
+		<div>
+			January(1),February(2),March(3),April(4),May(5),June(6),July(7),Aguest(8),September(9),October(10),November(11),December(12)
+		</div>
+		<input type="button"  value="删除January(1)" />
+		<input type="button"  value="删除December(1)" />
+		<div>
+			0,1,2,3,4,5,6,7,8,9
+		</div>
+		<input type="button"  value="复制" />
+		<input type="button"  value="还原" />
+		<div>
+			red,green,blue,white,yellow,black,brown
+		</div>
+		<input type="button"  value="还原" />
+		<input type="button"  value="删除前三项" />
+		<input type="button"  value="删除第二至三项" />
+		<input type="button"  value="在第二项后插入orange,purple" />
+		<input type="button"  value="替换第二和第三项" />
+	</body>
+</html>

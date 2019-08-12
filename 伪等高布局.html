@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			
+			body{
+				min-width: 600px;
+			}
+			
+			.clearfix:before,
+			.clearfix:after{
+				content: '';
+				display: table;
+				clear: both;
+			}
+			#header,#footer{
+				height: 50px;
+				background: grey;
+			}
+			
+			#content{
+				//border: 1px solid;
+				padding: 0 200px;
+				overflow: hidden;
+			}
+			
+			#content .middle{
+				float: left;			
+				background: pink;
+				width: 100%;
+				
+			}
+			
+			#content .left{
+				float: left;
+				height: 20px;	
+				margin-left: -100%;
+				width: 200px;						
+				background: green;	
+				position: relative;
+				left: -200px;
+				top: 0;	
+				padding-bottom: 10000px;
+				margin-bottom: -10000px;
+				//border: 1px solid;
+			}
+			
+			#content .right{
+				float: left;
+				height: 20px;
+				margin-left: -200px;
+				width: 198px;				
+				background: green;	
+				position: relative;
+				left: 200px;
+				top: 0;	
+				padding-bottom: 10000px;
+				margin-bottom: -10000px;
+				//border: 1px solid;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="header"></div>
+		<div id="content" class="clearfix">
+			<div class="middle">mmid<br>
+			mmid<br>
+			mmid<br>
+			r<br>
+			</div>
+			<div class="left">l</div>
+			<div class="right">
+				r<br>
+				r<br>
+				r<br>
+				r<br>
+				r<br>
+				r<br>
+				r<br>
+				r<br>
+				r<br>
+				r<br>
+			</div>
+		</div>
+		<div id="footer"></div>
+	</body>
+</html>

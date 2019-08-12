@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#outer{
+				background-color: #000;
+				width: 220px;
+				text-align: center;
+				margin: 0 auto;
+			}
+			
+			input{
+				margin: 10px 5px;
+				display: inline-block;
+				width: 30px;
+				text-align: center;
+			}
+			
+			span{
+				color: #fff;
+			}
+			
+			#btn{
+				width: 200px;
+				height: 50px;
+				border-radius: 5px;
+				background: lightgreen;
+				color: #fff;
+				font-size: 18px;
+				margin: 10px;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var inps = document.getElementsByTagName('input');
+				
+				inps[2].onclick = function(){
+					if(inps[2].value == '启动'){					
+						inps[2].style.background = 'red';
+						inps[2].value = '取消';
+						if(inps[0].value != '00' || inps[1].value != '00'){
+							this.timer = setInterval(function(a){
+								inps[1].value = +inps[1].value - 1;
+								
+								if(+inps[1].value < 10 ){
+									if(+inps[1].value == 0){
+										if(+inps[0].value == 0){										
+											inps[1].value = '00';
+											inps[0].value = '00';	
+											clearInterval(inps[2].timer);
+										}
+									}else if(+inps[1].value < 0 ){
+										inps[1].value = '59';
+										inps[0].value = '0'+ (+inps[0].value - 1);
+									}else{
+										inps[1].value = '0'+inps[1].value;
+									}				
+								}							
+							},1000);
+						}							
+					}else{
+						clearInterval(this.timer);
+						inps[2].style.background = 'lightgreen';
+						inps[2].value = '启动';
+					}			
+				};
+			};
+		</script>
+	</head>
+	<body>
+		<div id="outer">
+			<input type="text" value="00"/>
+			<span >分钟</span>
+			<input type="text" value="10" />
+			<span >秒</span>
+			<br />
+			<input type="button" id="btn" value="启动" />
+		</div>
+	</body>
+</html>

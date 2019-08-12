@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			
+			body{
+				background: palegoldenrod;
+			}	
+			
+			#oc{
+				background: #fff;
+				position: absolute;
+				left: 0;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				margin: auto;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		<canvas id="oc" width="400" height="280"></canvas>
+		<script type="text/javascript">
+			window.onload = function(){
+				var oc = document.querySelector('#oc');
+				var ctx = oc.getContext('2d');
+				var flag = 2;
+				var arr = [{x:0,y:140},{x:1,y:140+100*Math.sin(1*Math.PI/180)}];
+				var pre = 0;
+				var aft = 1;
+				setInterval(function(){			
+					ctx.save();
+					ctx.beginPath();
+					ctx.moveTo(arr[pre].x,arr[pre].y);
+					ctx.lineTo(arr[aft].x,arr[aft].y);
+					ctx.stroke();
+					ctx.restore()
+					var obj = {
+						x:flag,
+						y:140+100*Math.sin(flag*Math.PI/180)
+					}
+					
+					arr.push(obj);
+					pre++;
+					aft++;
+					flag++;									
+				},1000/60);
+			};
+		</script>
+	</body>
+</html>

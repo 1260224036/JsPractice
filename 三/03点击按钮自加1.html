@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				text-align: center;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			window,onload = function(){
+				var btn = document.getElementById('btn');
+				
+				btn.onclick = function(){
+					btn.value = +btn.value + 1;
+					alert(btn.value);
+				};
+			};
+		</script>
+	</head>
+	<body>
+		<input type="button" id="btn" value="0" />
+	</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			
+			.clearfix:before,
+			.clearfix:after{
+				content: '';
+				display: table;
+				clear: both;
+			}
+			
+			body{
+				background: #000;
+			}
+			
+			#outer{
+				width: 490px;
+				height: 170px;
+				margin: 10px auto;
+				border: 5px solid #fff;
+				border-radius: 5px;
+				position: relative;
+				background-color: #fff;
+			}
+			
+			#as{
+				position: absolute;
+				right: 25px;
+				bottom: 0px;
+			}
+			
+			#as a{
+				display: block;
+				width: 32px;
+				height: 32px;
+				float: left;
+				background: url(../img/achecked.png);
+				text-align: center;
+				line-height: 32px;
+				text-decoration: none;
+				font-size:  12px;
+				color: #fff;
+			}
+			
+			#as .ahover{
+				background: url(../img/acheck.png);
+			}
+		</style>
+		
+		<script type="text/javascript" src="../js/javascript.js"></script>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				var imgs = ['../img/0501.jpg','../img/0502.jpg','../img/0503.jpg','../img/0504.jpg','../img/0505.jpg']
+				var img = document.getElementById('outer').getElementsByTagName('img')[0];
+				var As = document.getElementsByTagName('a');
+				var flag = false;
+				var index = 0;
+				//alert();
+				setTimeout(function(){
+					img.style.opacity = '1';
+					
+					img.once = setInterval(function(){
+						img.style.opacity = +img.style.opacity - 0.005;
+						if(img.style.opacity == 0.3){
+							clearInterval(img.once);
+						}
+					},20);
+					
+				},0);
+				
+				img.timer = setInterval(function(){
+					img.style.opacity = '1';
+					
+					clearInterval(img.timer2);
+					
+					img.timer2 = setInterval(function(){
+						img.style.opacity = +img.style.opacity - 0.005;
+					},20);
+
+					removeClass(As[index],'ahover');					
+					index++;
+					if(index >=As.length){
+						index=0;
+					}
+					
+					addClass(As[index],'ahover');
+										
+					img.src = imgs[index];
+					
+				},3000);															
+			};
+		</script>
+	</head>
+	<body>
+		<div id="outer">
+			<img src="../img/0501.jpg"/>
+			<div id="as" class="clearfix">
+				<a href="javascript:;" class="ahover">1</a>
+				<a href="javascript:;">2</a>
+				<a href="javascript:;">3</a>
+				<a href="javascript:;">4</a>
+				<a href="javascript:;">5</a>
+			</div>			
+		</div>
+	</body>
+</html>

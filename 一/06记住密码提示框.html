@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">		
+			#area{
+				width: 300px;
+				margin: 0 auto;
+			}
+			
+			#alertBox{
+				background-color: orange;
+				border: 1px solid;
+				padding: 10px;
+			}
+			
+			.boxHidden{
+				visibility: hidden;
+			}
+			
+		</style>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				var rp = document.getElementById('rp');
+				var alertBox = document.getElementById('alertBox');
+				var label = document.getElementsByTagName('label')[0];
+				//alert(label.innerHTML);
+				document.onmousemove = function(event){
+					if(event.target == rp || event.target == label){
+						removeClass(alertBox,'boxHidden');
+					}else{
+						addClass(alertBox,'boxHidden');
+					}
+				};
+			};
+			
+			function replaceClass(obj,cn){
+				obj.className = cn;
+			}
+			
+			function removeClass(obj,cn){
+				var reg = new RegExp('\\b' + cn + '\\b');
+				obj.className = obj.className.replace(reg,'');
+			}
+			
+			function addClass(obj,cn){
+				if(noHasClass(obj,cn)){
+					obj.className += ' ' + cn;					
+				}
+			}
+			
+			function noHasClass(obj,cn){
+				var reg = new RegExp('\\b' + cn + '\\b');
+				return !reg.test(obj.className);
+			}
+		</script>
+	</head>
+	<body>
+		<div id="area">
+			<input type="checkbox"  id="rp" />
+			<label for="rp">两周内自动登陆</label>
+			<div id="alertBox" class="boxHidden">
+			为了你的信息安全，在公共场所请勿使用此功能
+			</div>
+		</div>		
+		
+	</body>
+</html>

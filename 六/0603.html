@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			
+			ul{
+				border: 1px solid;
+				border-bottom: 0px ;
+				width: 100px;
+				list-style: none;
+				position: absolute;
+				top: 0;
+				left: 0;
+				display: none;
+			}
+			
+			ul li{
+				border-bottom:1px  solid;
+			}
+			
+			ul li a{
+				text-decoration: none;
+				display: block;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var ul = document.getElementsByTagName('ul')[0];
+				
+				document.oncontextmenu = function ()
+				{
+					ul.style.top = event.clientY +'px';
+					ul.style.left = event.clientX + 'px';
+					ul.style.display = 'block';
+					return false
+				}
+				
+				document.onclick = function(event){					
+					ul.style.display = 'none';
+				};
+			};
+		</script>
+	</head>
+	<body>
+		
+		<ul>	
+			<li><h5>题目</h5></li>
+			<li><a href="">1</a></li>
+			<li><a href="">2</a></li>
+			<li><a href="">3</a></li>
+		</ul>
+	</body>
+</html>
